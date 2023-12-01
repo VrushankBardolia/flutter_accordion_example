@@ -32,10 +32,18 @@ class Home extends StatelessWidget {
 
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text('Accordion Example'),
-            Accordion(title: 'Hello',)
+            Accordion(
+              title: Text('Hello'),
+              subTitle: [
+                Text('Welcome'),
+                Text('Back'),
+              ],
+              // borderRadius: 8,
+              // borderColor: Colors.red,
+              // backgroundColor: Colors.grey.shade200,
+            )
           ],
         ),
       ),
