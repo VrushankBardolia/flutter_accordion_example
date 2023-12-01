@@ -28,21 +28,18 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Accordion')),
+      appBar: AppBar(title: const Text('Accordion')),
 
       body: Center(
         child: Column(
           children: [
             const Text('Accordion Example'),
             Accordion(
-              title: Text('Hello'),
+              title: Text('Hello',style: Theme.of(context).textTheme.headlineMedium,),
               subTitle: [
-                Text('Welcome'),
-                Text('Back'),
+                Text('Welcome',style: Theme.of(context).textTheme.titleMedium),
+                Text('Back',style: Theme.of(context).textTheme.titleMedium),
               ],
-              // borderRadius: 8,
-              // borderColor: Colors.red,
-              // backgroundColor: Colors.grey.shade200,
             )
           ],
         ),
