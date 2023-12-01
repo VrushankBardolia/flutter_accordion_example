@@ -25,39 +25,6 @@ class _AccordionState extends State<Accordion> {
 
   @override
   Widget build(BuildContext context) {
-    // return GestureDetector(
-    //   onTap:(){
-    //     setState(()=> isExpended = !isExpended);
-    //   },
-    //   child: Container(
-    //     padding: const EdgeInsets.all(14),
-    //     decoration: BoxDecoration(
-    //       borderRadius: BorderRadius.circular(widget.borderRadius ?? 12),
-    //       border: Border.all(color: widget.borderColor ?? Colors.black)
-    //     ),
-    //     child: Column(
-    //       children: [
-    //         Row(
-    //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    //           children: [
-    //             Text(widget.title,style: widget.headerTextStyle ?? Theme.of(context).textTheme.titleLarge),
-    //             Icon(
-    //                 isExpended
-    //                     ? CupertinoIcons.chevron_up
-    //                     :  CupertinoIcons.chevron_down
-    //             ),
-    //           ],
-    //         ),
-    //         if(isExpended){
-    //           Text('subTitle')
-    //         }
-    //         // isExpended
-    //         //     ? Text('subTitle')
-    //         //     : null
-    //       ],
-    //     ),
-    //   ),
-    // );
     return Container(
       margin: const EdgeInsets.all(8.0),
       decoration: BoxDecoration(
