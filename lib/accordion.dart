@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 
 class Accordion extends StatefulWidget {
@@ -5,7 +7,7 @@ class Accordion extends StatefulWidget {
   final List<Widget> subTitle;
   double? borderRadius;
   Color? borderColor;
-  Color? backgroundColor;
+  Color? titleBackgroundColor;
 
   Accordion({
     super.key,
@@ -13,7 +15,7 @@ class Accordion extends StatefulWidget {
     required this.subTitle,
     this.borderRadius,
     this.borderColor,
-    this.backgroundColor,
+    this.titleBackgroundColor,
   });
 
   @override
@@ -28,18 +30,21 @@ class _AccordionState extends State<Accordion> {
     return Container(
       margin: const EdgeInsets.all(8.0),
       decoration: BoxDecoration(
-        color: widget.backgroundColor,
-        border: Border.all(color: widget.borderColor ?? Colors.black),
+        border: Border.all(color: widget.borderColor ?? Colors.white),
         borderRadius: BorderRadius.all(Radius.circular(widget.borderRadius ?? 12))
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          InkWell(
+          GestureDetector(
             onTap: () {
               setState(()=> isExpanded = !isExpanded );
             },
-            child: Padding(
+            child: Container(
+              decoration: BoxDecoration(
+                  color: widget.titleBackgroundColor ?? Colors.grey.shade100,
+                  borderRadius: BorderRadius.all(Radius.circular(widget.borderRadius ?? 12))
+              ),
               padding: const EdgeInsets.all(16.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
