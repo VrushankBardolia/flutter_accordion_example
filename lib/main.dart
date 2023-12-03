@@ -40,6 +40,8 @@ class Home extends StatelessWidget {
                 Text('Welcome',style: Theme.of(context).textTheme.titleMedium),
                 Text('Back',style: Theme.of(context).textTheme.titleMedium),
               ],
+              borderColor: Colors.red,
+              // borderRadius: 20,
             )
           ],
         ),
