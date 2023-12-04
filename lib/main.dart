@@ -39,7 +39,6 @@ class Home extends StatelessWidget {
               subTitle: [
                 Text('Welcome',style: Theme.of(context).textTheme.titleMedium),
                 Text('Back',style: Theme.of(context).textTheme.titleMedium),
-                Accordion(title: Text('sub'), subTitle: [Text('he')])
               ],
               borderColor: Colors.brown.shade900,
               titleBackgroundColor: Colors.blue.shade700,

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class Accordion extends StatefulWidget {
   final Text title;
-  final List<Widget> subTitle;
+  final List<Text> subTitle;
   double? borderRadius;
   Color? borderColor;
   Color? titleBackgroundColor;
