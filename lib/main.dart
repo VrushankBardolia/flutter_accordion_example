@@ -1,4 +1,4 @@
-import 'package:accordian/accordion.dart';
+import '../accordion.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -39,9 +39,11 @@ class Home extends StatelessWidget {
               subTitle: [
                 Text('Welcome',style: Theme.of(context).textTheme.titleMedium),
                 Text('Back',style: Theme.of(context).textTheme.titleMedium),
+                Accordion(title: Text('sub'), subTitle: [Text('he')])
               ],
               borderColor: Colors.brown.shade900,
-              titleBackgroundColor: Colors.blue.shade100,
+              titleBackgroundColor: Colors.blue.shade700,
+              subtitleBackgroundColor: Colors.blue.shade100,
               // borderRadius: 20,
             )
           ],

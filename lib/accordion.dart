@@ -8,6 +8,7 @@ class Accordion extends StatefulWidget {
   double? borderRadius;
   Color? borderColor;
   Color? titleBackgroundColor;
+  Color? subtitleBackgroundColor;
 
   Accordion({
     super.key,
@@ -16,6 +17,7 @@ class Accordion extends StatefulWidget {
     this.borderRadius,
     this.borderColor,
     this.titleBackgroundColor,
+    this.subtitleBackgroundColor
   });
 
   @override
@@ -43,7 +45,10 @@ class _AccordionState extends State<Accordion> {
             child: Container(
               decoration: BoxDecoration(
                   color: widget.titleBackgroundColor ?? Colors.grey.shade100,
-                  borderRadius: BorderRadius.all(Radius.circular(widget.borderRadius ?? 12))
+                  borderRadius: isExpanded ? BorderRadius.only(
+                    topLeft: Radius.circular(widget.borderRadius ?? 12),
+                    topRight: Radius.circular(widget.borderRadius ?? 12))
+                      : BorderRadius.all(Radius.circular(widget.borderRadius ?? 12))
               ),
               padding: const EdgeInsets.all(16.0),
               child: Row(
@@ -59,7 +64,13 @@ class _AccordionState extends State<Accordion> {
             ),
           ),
           if(isExpanded)
-            Padding(
+            Container(
+                decoration: BoxDecoration(
+                    color: widget.subtitleBackgroundColor ?? Colors.white,
+                    borderRadius: BorderRadius.only(
+                        bottomRight: Radius.circular(widget.borderRadius ?? 12),
+                        bottomLeft: Radius.circular(widget.borderRadius ?? 12))
+                ),
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
