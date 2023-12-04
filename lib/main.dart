@@ -34,16 +34,21 @@ class Home extends StatelessWidget {
         child: Column(
           children: [
             const Text('Accordion Example'),
-            Accordion(
-              title: Text('Hello',style: Theme.of(context).textTheme.headlineMedium,),
-              subTitle: [
-                Text('Welcome',style: Theme.of(context).textTheme.titleMedium),
-                Text('Back',style: Theme.of(context).textTheme.titleMedium),
-              ],
-              borderColor: Colors.brown.shade900,
-              titleBackgroundColor: Colors.blue.shade700,
-              subtitleBackgroundColor: Colors.blue.shade100,
-              // borderRadius: 20,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Accordion(
+                title: Text('Hello',style: Theme.of(context).textTheme.headlineMedium,),
+                subTitle: [
+                  Text('Welcome',style: Theme.of(context).textTheme.titleMedium),
+                  Text('Back',style: Theme.of(context).textTheme.titleMedium),
+                ],
+                borderColor: Colors.black,
+                // titleBackgroundColor: Colors.blue.shade500,
+                // subtitleBackgroundColor: Colors.blue.shade50,
+                // contentPadding: 8,
+                // borderRadius: 4,
+                // borderColor: Colors.black,
+              ),
             )
           ],
         ),

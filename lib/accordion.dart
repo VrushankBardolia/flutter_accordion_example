@@ -5,19 +5,21 @@ import 'package:flutter/material.dart';
 class Accordion extends StatefulWidget {
   final Text title;
   final List<Text> subTitle;
-  double? borderRadius;
-  Color? borderColor;
-  Color? titleBackgroundColor;
-  Color? subtitleBackgroundColor;
+  double borderRadius;
+  double contentPadding;
+  Color borderColor;
+  Color titleBackgroundColor;
+  Color subtitleBackgroundColor;
 
   Accordion({
     super.key,
     required this.title,
     required this.subTitle,
-    this.borderRadius,
-    this.borderColor,
-    this.titleBackgroundColor,
-    this.subtitleBackgroundColor
+    this.borderRadius = 12.0,
+    this.contentPadding = 12.0,
+    this.borderColor = Colors.transparent,
+    this.titleBackgroundColor = const Color.fromRGBO(238, 238, 238, 1.0),
+    this.subtitleBackgroundColor =  Colors.white,
   });
 
   @override
@@ -30,10 +32,9 @@ class _AccordionState extends State<Accordion> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(8.0),
       decoration: BoxDecoration(
-        border: Border.all(color: widget.borderColor ?? Colors.white),
-        borderRadius: BorderRadius.all(Radius.circular(widget.borderRadius ?? 12))
+        border: Border.all(color: widget.borderColor),
+        borderRadius: BorderRadius.all(Radius.circular(widget.borderRadius))
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -44,13 +45,13 @@ class _AccordionState extends State<Accordion> {
             },
             child: Container(
               decoration: BoxDecoration(
-                color: widget.titleBackgroundColor ?? Colors.grey.shade100,
+                color: widget.titleBackgroundColor,
                 borderRadius: isExpanded ? BorderRadius.only(
-                  topLeft: Radius.circular(widget.borderRadius ?? 12),
-                  topRight: Radius.circular(widget.borderRadius ?? 12))
-                    : BorderRadius.all(Radius.circular(widget.borderRadius ?? 12))
+                  topLeft: Radius.circular(widget.borderRadius),
+                  topRight: Radius.circular(widget.borderRadius))
+                    : BorderRadius.all(Radius.circular(widget.borderRadius))
               ),
-              padding: const EdgeInsets.all(16.0),
+              padding: EdgeInsets.all(widget.contentPadding),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -66,12 +67,12 @@ class _AccordionState extends State<Accordion> {
           if(isExpanded)
             Container(
               decoration: BoxDecoration(
-                color: widget.subtitleBackgroundColor ?? Colors.white,
+                color: widget.subtitleBackgroundColor,
                 borderRadius: BorderRadius.only(
-                  bottomRight: Radius.circular(widget.borderRadius ?? 12),
-                  bottomLeft: Radius.circular(widget.borderRadius ?? 12))
+                  bottomRight: Radius.circular(widget.borderRadius),
+                  bottomLeft: Radius.circular(widget.borderRadius))
               ),
-              padding: const EdgeInsets.all(16.0),
+              padding: EdgeInsets.all(widget.contentPadding),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: widget.subTitle
